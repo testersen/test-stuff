@@ -11,6 +11,7 @@ fun versionOf(property: String) =
 allprojects {
 	apply(plugin = "java-library")
 	apply(plugin = "jacoco")
+	apply(plugin = "maven-publish")
 	apply(plugin = "org.jetbrains.kotlin.jvm")
 	apply(plugin = "org.jetbrains.dokka")
 
