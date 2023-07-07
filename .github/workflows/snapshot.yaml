@@ -8,4 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Check format"
-        uses: "j4m350n/intellij-fmt-action@0.2.0"
+        uses: "j4m350n/intellij-fmt-action@0.3.0"
