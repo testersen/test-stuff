@@ -8,5 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: "actions/checkout@v3"
-      - name: "Check format"
-        uses: "j4m350n/intellij-fmt-action@0.4.0"
+      - uses: "actions/setup-java@v3"
+        with:
+          distribution: "termurin"
+          version: "17"
+      - uses: "jam350n/setup-intellij@v0.1.0"
+      - run: "idea.sh format -d -r -s $(pwd)/.idea/codeStyles/Project.xml"
