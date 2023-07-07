@@ -7,5 +7,6 @@ jobs:
     if: github.repository == 'j4m350n/test-stuff'
     runs-on: ubuntu-latest
     steps:
+      - uses: "actions/checkout@v3"
       - name: "Check format"
         uses: "j4m350n/intellij-fmt-action@0.3.0"
