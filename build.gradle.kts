@@ -5,8 +5,8 @@ plugins {
 	id("org.jetbrains.dokka") apply true
 }
 
-group = "no.telenor.webawesome"
-version = System.getenv().getOrDefault("VERSION", "UNVERSIONED")
+fun versionOf(property: String) =
+	project.properties[property + "Version"] ?: throw Exception("Could not find version for '$property'")
 
 allprojects {
 	apply(plugin = "java-library")
