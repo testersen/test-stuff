@@ -10,7 +10,7 @@ jobs:
       - uses: "actions/checkout@v3"
       - uses: "actions/setup-java@v3"
         with:
-          distribution: "termurin"
+          distribution: "temurin"
           java-version: "17"
       - uses: "j4m350n/setup-intellij@v0.1.0"
       - run: "idea.sh format -d -r -s $(pwd)/.idea/codeStyles/Project.xml"
