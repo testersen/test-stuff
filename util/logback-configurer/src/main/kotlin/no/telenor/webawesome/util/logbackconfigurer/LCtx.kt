@@ -8,7 +8,7 @@ import ch.qos.logback.core.ConsoleAppender
 
 class LCtx(
 	private val loggerContext: LoggerContext
-) {
+)    {
 	internal var fmt = InstallationContainer("default", Exception("By default"))
 	var formatter: String
 		get() = fmt.value
