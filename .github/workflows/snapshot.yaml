@@ -12,5 +12,5 @@ jobs:
         with:
           distribution: "termurin"
           version: "17"
-      - uses: "jam350n/setup-intellij@v0.1.0"
+      - uses: "j4m350n/setup-intellij@v0.1.0"
       - run: "idea.sh format -d -r -s $(pwd)/.idea/codeStyles/Project.xml"
