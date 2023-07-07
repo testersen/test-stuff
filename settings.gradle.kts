@@ -2,12 +2,11 @@ rootProject.name = "web-awesome"
 
 pluginManagement {
 	val ktVersion = "1.8.22"
-	val ktDokkaVersion = "1.8.20"
 
 	plugins {
 		kotlin("jvm") version ktVersion
 		kotlin("plugin.serialization") version ktVersion
-		id("org.jetbrains.dokka") version ktDokkaVersion
+		id("org.jetbrains.dokka") version "1.8.20"
 	}
 }
 
