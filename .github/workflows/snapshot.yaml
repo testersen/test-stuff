@@ -12,7 +12,7 @@ jobs:
         with:
           distribution: "temurin"
           java-version: "17"
-      - uses: "j4m350n/setup-intellij@v0.1.6"
+      - uses: "j4m350n/setup-intellij@v0.1.7"
       - run: "/opt/idea/bin/idea.sh format -d -r -s .idea/codeStyles/Project.xml -m *.kt,*.kts ."
       #- name: "Setup IntelliJ"
       #  run: |
