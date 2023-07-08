@@ -13,7 +13,7 @@ jobs:
           distribution: "temurin"
           java-version: "17"
       - uses: "j4m350n/setup-intellij@v0.1.7"
-      - run: "/opt/idea/bin/idea.sh format -d -r -s .idea/codeStyles/Project.xml -m *.kt,*.kts ."
+      - run: "idea.sh format -d -r -s .idea/codeStyles/Project.xml -m *.kt,*.kts ."
       #- name: "Setup IntelliJ"
       #  run: |
       #    wget --no-verbose -O /tmp/idea.tar.gz https://download-cdn.jetbrains.com/idea/ideaIC-2023.1.3.tar.gz
