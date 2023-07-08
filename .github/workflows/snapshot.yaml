@@ -19,4 +19,4 @@ jobs:
           tar xzf /tmp/idea.tar.gz
           mv /opt/idea* /opt/idea
           rm -rf /tmp/idea.tar.gz
-      - run: "/opt/idea/bin/idea.sh format -d -r -s $(pwd)/.idea/codeStyles/Project.xml"
+      - run: "/opt/idea/bin/idea.sh format -d -r -s -m * $(pwd)/.idea/codeStyles/Project.xml"
