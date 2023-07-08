@@ -13,7 +13,8 @@ in Kotlin with minimal efforts._
 > **Warning**
 >
 > This is very much still a work in progress, expect a lot of changes. Also,
-> don't look in the examples folder, there will be breaking changes and the final
+> don't look in the examples folder, there will be breaking changes and the
+> final
 > product is not represented in the examples directory, yet!
 
 <p align="center">
