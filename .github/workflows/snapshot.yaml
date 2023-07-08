@@ -13,4 +13,4 @@ jobs:
           distribution: "temurin"
           java-version: "17"
       - uses: "telenornorway/setup-intellij@v0.1.0"
-      - uses: "telenornorway/action-intellij-format@v0.1.6"
+      - uses: "telenornorway/action-intellij-format@v0.1.7"
