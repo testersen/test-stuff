@@ -19,11 +19,12 @@ class HijackLogbackConfiguration : ContextAwareBase(), Configurator {
 				for (annotation in method.annotations) {
 					if (annotation !is LogbackConfigurer) continue
 
-					val strRepresentation = "${klass.name}#${method.name}(${
-						method.parameters.joinToString(",") {
-							"${it.name}: ${it.parameterizedType}"
-						}
-					}): ${method.genericReturnType}"
+					val strRepresentation =
+						"${klass.name}#${method.name}(${
+							method.parameters.joinToString(",") {
+								"${it.name}: ${it.parameterizedType}"
+							}
+						}): ${method.genericReturnType}"
 
 					if (method.parameters.size != 1) {
 						throw Exception("invalid parameter count! ($strRepresentation)")
@@ -49,33 +50,36 @@ class HijackLogbackConfiguration : ContextAwareBase(), Configurator {
 	}
 
 	@Suppress("UNCHECKED_CAST")
-	private fun getAllClasses(): Set<Class<*>> = ClassLoader.getSystemClassLoader().definedPackages.map { pkg ->
-		val pkgName = pkg.name
-		try {
-			BufferedReader(
-				InputStreamReader(
-					ClassLoader.getSystemClassLoader().getResourceAsStream(pkgName.replace(".", "/"))
-						?: throw Exception("Unable to get stream for '$pkgName'")
-				)
-			).lines()
-				.filter {
-					it.endsWith(".class")
+	private fun getAllClasses(): Set<Class<*>> =
+		ClassLoader.getSystemClassLoader()
+			.definedPackages
+			.map { pkg ->
+				val pkgName = pkg.name
+				try {
+					BufferedReader(
+						InputStreamReader(
+							ClassLoader.getSystemClassLoader().getResourceAsStream(pkgName.replace(".", "/"))
+								?: throw Exception("Unable to get stream for '$pkgName'")
+						)
+					)
+						.lines()
+						.filter { it.endsWith(".class") }
+						.map {
+							try {
+								Class.forName("$pkgName.${it.substring(0, it.lastIndexOf("."))}")
+							} catch (ex: Throwable) {
+								null
+							}
+						}
+						.filter { it !== null }
+						.collect(Collectors.toSet())
+				} catch (ex: Throwable) {
+					null
 				}
-				.map {
-					try {
-						Class.forName("$pkgName.${it.substring(0, it.lastIndexOf("."))}")
-					} catch (ex: Throwable) {
-						null
-					}
-				}
-				.filter { it !== null }
-				.collect(Collectors.toSet())
-		} catch (ex: Throwable) {
-			null
-		}
-	}.reduce { acc, classes ->
-		val accumulator = acc ?: mutableSetOf()
-		if (classes !== null) accumulator.addAll(classes)
-		accumulator
-	} as Set<Class<*>>
+			}
+			.reduce { acc, classes ->
+				val accumulator = acc ?: mutableSetOf()
+				if (classes !== null) accumulator.addAll(classes)
+				accumulator
+			} as Set<Class<*>>
 }

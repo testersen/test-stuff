@@ -6,9 +6,7 @@ import ch.qos.logback.classic.LoggerContext
 import ch.qos.logback.classic.spi.ILoggingEvent
 import ch.qos.logback.core.ConsoleAppender
 
-class LCtx(
-	private val loggerContext: LoggerContext
-)    {
+class LCtx(private val loggerContext: LoggerContext) {
 	internal var fmt = InstallationContainer("default", Exception("By default"))
 	var formatter: String
 		get() = fmt.value
@@ -16,11 +14,13 @@ class LCtx(
 			fmt = InstallationContainer(value, Exception("Set here"))
 		}
 
-	internal var fmts = mutableMapOf<String, InstallationContainer<SetupFormatter>>(
-		"default" to InstallationContainer(DefaultFormatter(), Exception("By default"))
-	)
+	internal var fmts =
+		mutableMapOf<String, InstallationContainer<SetupFormatter>>(
+			"default" to InstallationContainer(DefaultFormatter(), Exception("By default"))
+		)
 
-	val formatters: Map<String, SetupFormatter> get() = mapOf(*fmts.map { it.key to it.value.value }.toTypedArray())
+	val formatters: Map<String, SetupFormatter>
+		get() = mapOf(*fmts.map { it.key to it.value.value }.toTypedArray())
 
 	fun addFormatter(name: String, formatter: SetupFormatter): LCtx {
 		if (fmts.containsKey(name)) {
@@ -34,8 +34,11 @@ class LCtx(
 
 	val levels = HashMap<String, Level>()
 
-	private var isInstalled = false;
-	val installed: Boolean get() = isInstalled
+	private var isInstalled = false
+
+	val installed: Boolean
+		get() = isInstalled
+
 	fun install() {
 		if (isInstalled) {
 			throw Exception("Logger configuration is already installed!")
@@ -70,5 +73,4 @@ class LCtx(
 			logger.level = level
 		}
 	}
-
 }

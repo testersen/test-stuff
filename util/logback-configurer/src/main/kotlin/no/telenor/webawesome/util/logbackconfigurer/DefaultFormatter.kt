@@ -12,7 +12,11 @@ class DefaultFormatter : SetupFormatter {
 		var defaultLoggingFormat = "%level %logger %msg%n"
 	}
 
-	override fun setup(loggerContext: LoggerContext, appender: ConsoleAppender<ILoggingEvent>, ctx: LCtx) {
+	override fun setup(
+		loggerContext: LoggerContext,
+		appender: ConsoleAppender<ILoggingEvent>,
+		ctx: LCtx
+	) {
 		val layout = PatternLayout()
 		layout.context = loggerContext
 		layout.pattern = defaultLoggingFormat
