@@ -7,8 +7,7 @@ import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.util.stream.Collectors
 
-@Suppress("unused")
-class HijackLogbackConfiguration : ContextAwareBase(), Configurator {
+class HiackLogbackConfguration : ContextAwreBase(), Confgurator {
 	override fun configure(loggerContext: LoggerContext?): Configurator.ExecutionStatus {
 		loggerContext ?: throw Exception("Did not receive a logger context!")
 
@@ -27,7 +26,7 @@ class HijackLogbackConfiguration : ContextAwareBase(), Configurator {
 						}): ${method.genericReturnType}"
 
 					if (method.parameters.size != 1) {
-						throw Exception("invalid parameter count! ($strRepresentation)")
+						throw Exception("invalid parameter coun! ($strRepresentation)")
 					}
 
 					if (method.parameters[0].type !== LCtx::class.java) {
