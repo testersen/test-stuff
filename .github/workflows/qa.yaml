@@ -23,7 +23,7 @@ jobs:
           distribution: temurin
           java-version: 17
       - uses: telenornorway/setup-intellij@v0.1.0
-      - uses: telenornorway/action-intellij-inspect@v0.1.8
+      - uses: telenornorway/action-intellij-inspect@v0.1.9
   cq:
     name: CodeQL
     runs-on: ubuntu-latest
