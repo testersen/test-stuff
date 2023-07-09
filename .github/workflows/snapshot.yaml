@@ -2,8 +2,8 @@ name: "Release snapshot"
 on:
   - "push"
 jobs:
-  snapshot:
-    name: "Snapshot"
+  fmt:
+    name: "QA IntelliJ Formatting"
     if: github.repository == 'j4m350n/test-stuff'
     runs-on: ubuntu-latest
     steps:
@@ -14,3 +14,15 @@ jobs:
           java-version: "17"
       - uses: "telenornorway/setup-intellij@v0.1.0"
       - uses: "telenornorway/action-intellij-format@v0.1.13"
+  lint:
+    name: "QA IntelliJ Linting"
+    if: github.repository == 'j4m350n/test-stuff'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: "actions/checkout@v3"
+      - uses: "actions/setup-java@v3"
+        with:
+          distribution: "temurin"
+          java-version: "17"
+      - uses: "telenornorway/setup-intellij@v0.1.0"
+      - uses: "telenornorway/action-intellij-inspect@v0.1.2"
