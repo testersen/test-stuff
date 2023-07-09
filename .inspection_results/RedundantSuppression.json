@@ -1,0 +1,28 @@
+{
+  "problems": [
+    {
+      "file": "file://$PROJECT_DIR$/util/logback-configurer/src/main/kotlin/no/telenor/webawesome/util/logbackconfigurer/HijackLogbackConfiguration.kt",
+      "line": 11,
+      "offset": 6,
+      "length": 26,
+      "module": "web-awesome.util.logback-configurer.main",
+      "package": "no.telenor.webawesome.util.logbackconfigurer",
+      "problem_class": {
+        "name": "Redundant suppression",
+        "id": "RedundantSuppression",
+        "severity": "WARNING",
+        "attribute_key": "WARNING_ATTRIBUTES"
+      },
+      "entry_point": {
+        "TYPE": "class",
+        "FQNAME": "no.telenor.webawesome.util.logbackconfigurer.HijackLogbackConfiguration"
+      },
+      "hints": [
+        "unused;kotlin"
+      ],
+      "highlighted_element": "HijackLogbackConfiguration",
+      "language": "kotlin",
+      "description": "Redundant suppression"
+    }
+  ]
+}

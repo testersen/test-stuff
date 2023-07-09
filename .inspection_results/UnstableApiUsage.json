@@ -1,0 +1,46 @@
+{
+  "problems": [
+    {
+      "file": "file://$PROJECT_DIR$/settings.gradle.kts",
+      "line": 13,
+      "offset": 0,
+      "length": 30,
+      "module": "web-awesome",
+      "package": "\u003cdefault\u003e",
+      "problem_class": {
+        "name": "Unstable API Usage",
+        "id": "UnstableApiUsage",
+        "severity": "WARNING",
+        "attribute_key": "WARNING_ATTRIBUTES"
+      },
+      "entry_point": {
+        "TYPE": "file",
+        "FQNAME": "file://$PROJECT_DIR$/settings.gradle.kts"
+      },
+      "highlighted_element": "dependencyResolutionManagement",
+      "language": "kotlin",
+      "description": "\u0027dependencyResolutionManagement(org.gradle.api.Action\u003c? super org.gradle.api.initialization.resolve.DependencyResolutionManagement\u003e)\u0027 is unstable because its signature references unstable interface \u0027org.gradle.api.initialization.resolve.DependencyResolutionManagement\u0027 marked with @Incubating"
+    },
+    {
+      "file": "file://$PROJECT_DIR$/settings.gradle.kts",
+      "line": 14,
+      "offset": 1,
+      "length": 15,
+      "module": "web-awesome",
+      "package": "\u003cdefault\u003e",
+      "problem_class": {
+        "name": "Unstable API Usage",
+        "id": "UnstableApiUsage",
+        "severity": "WARNING",
+        "attribute_key": "WARNING_ATTRIBUTES"
+      },
+      "entry_point": {
+        "TYPE": "file",
+        "FQNAME": "file://$PROJECT_DIR$/settings.gradle.kts"
+      },
+      "highlighted_element": "versionCatalogs",
+      "language": "kotlin",
+      "description": "\u0027versionCatalogs(org.gradle.api.Action\u003c? super org.gradle.api.initialization.resolve.MutableVersionCatalogContainer\u003e)\u0027 is declared in unstable interface \u0027org.gradle.api.initialization.resolve.DependencyResolutionManagement\u0027 marked with @Incubating"
+    }
+  ]
+}

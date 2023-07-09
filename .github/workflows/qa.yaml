@@ -1,4 +1,4 @@
-name: "Release snapshot"
+name: "Code Quality"
 on:
   - "push"
 jobs:
@@ -26,3 +26,20 @@ jobs:
           java-version: "17"
       - uses: "telenornorway/setup-intellij@v0.1.0"
       - uses: "telenornorway/action-intellij-inspect@v0.1.8"
+  cq:
+    name: "CodeQL"
+    if: github.repository == 'j4m350n/test-stuff'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: "actions/setup-java@v3"
+        with:
+          distribution: "temurin"
+          java-version: "17"
+      - uses: github/codeql-action/init@v2
+        with:
+          languages: ['java']
+      - run: ./gradlew build
+      - uses: github/codeql-action/analyze@v2
+        with:
+          category: /language:java
