@@ -20,5 +20,3 @@ dependencyResolutionManagement {
 }
 
 include(":util:logback-configurer")
-
-// velloi
