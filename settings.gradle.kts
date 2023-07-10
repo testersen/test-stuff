@@ -10,7 +10,6 @@ pluginManagement {
 	}
 }
 
-@Suppress("UnstableApiUsage")
 dependencyResolutionManagement {
 	versionCatalogs {
 		create("libs") {
