@@ -19,6 +19,4 @@ dependencyResolutionManagement {
 	}
 }
 
-// rhello
-
 include(":util:logback-configurer")
