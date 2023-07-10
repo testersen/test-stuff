@@ -10,6 +10,7 @@ pluginManagement {
 	}
 }
 
+@Suppress("UnstableApiUsage")
 dependencyResolutionManagement {
 	versionCatalogs {
 		create("libs") {
@@ -17,5 +18,7 @@ dependencyResolutionManagement {
 		}
 	}
 }
+
+// rhello
 
 include(":util:logback-configurer")
